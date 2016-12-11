@@ -13,6 +13,7 @@ bool HAPLOID = false;
 bool SILENT = false;
 bool DEBUG = false;
 bool BINARY_OUT = false;
+bool VERBOSE = false;
 int MAX_ERR_HOM = 4;
 int MAX_ERR_HET = 1;
 
@@ -42,6 +43,7 @@ int main(int argc, char* argv[])
 		else if( strncmp(argv[i], "-haploid", strlen("-haploid")) == 0 )					{ HAPLOID = true; HAP_EXT = true; }
 		else if( strncmp(argv[i], "-h_extend", strlen("-h_extend")) == 0 )					HAP_EXT = true;
 		else if( strncmp(argv[i], "-w_extend", strlen("-w_extend")) == 0 )					WIN_EXT = true;
+		else if( strncmp(argv[i], "-verbose", strlen("-verbose")) == 0 )						VERBOSE = true;
 		else bad_param = true;
 	}
 
@@ -66,7 +68,7 @@ int main(int argc, char* argv[])
 		<< '\t' << "-err_het" << '\t' << "Maximum number of mismatching heterozygous markers (per slice)." << endl
 		<< '\t' << "-from_snp" << '\t' << "Start SNP (rsID)." << endl
 		<< '\t' << "-to_snp" << '\t' << "End SNP (rsID)." << endl
-		<< '\t' << "-haps" << '\t' << "Print the resolved haplotypes in a seperate HAPS file." << endl
+		<< '\t' << "-print" << '\t' << "Print the resolved haplotypes in a seperate HAPS file." << endl
 		<< '\t' << "-map" << '\t' << "Genetic distance map." << endl
 		<< '\t' << "-bits" << '\t' << "Slice size." << endl
 		<< '\t' << "-homoz" << '\t' << "Allow self matches (homozygosity)" << endl
@@ -86,6 +88,9 @@ int main(int argc, char* argv[])
 	if(map != "")
 	{
 		ALL_SNPS.loadGeneticDistanceMap( map );
+		if (VERBOSE) {
+			cout << "Loaded genetic distance map" << endl;
+		}
 	}
 
 	GERMLINE germline;

@@ -31,10 +31,22 @@ void PEDIndividualsExtractor::loadInput()
 	ALL_SNPS.beginChromosome();
 	numberOfMarkers = ALL_SNPS.size();
 
-	while (!stream.eof() )
+	if (VERBOSE) {
+		cout << "Number of SNPs in the set are " << numberOfMarkers << endl;
+	}
+
+	int i = 0;
+
+	// It looks like with C++ 11, seekg will read right past the end of the stream and
+	// EOF was never getting set
+	while (stream.good())
 	{
 		getIndividuals();
-		stream.seekg(numberOfMarkers*4 + 1,ios::cur);
+		stream.seekg(numberOfMarkers*4 + 1,ios_base::cur);
+		if (VERBOSE) {
+			cout << "Added individual #" << ++i << endl;
+			cout << "Position in stream is " << stream.tellg() << endl;
+		}
 	}
 	
 	individualsP->initialize();
@@ -56,6 +68,10 @@ void PEDIndividualsExtractor::getInput()
 		cerr << "WARNING:PEDIndividualsExtractor::getInput():cannot open map file" << endl;
 		valid_flag = false;
 		return;
+	}
+
+	if (VERBOSE) {
+		cout << "Opened map file " << map_file << " successfully" << endl;
 	}
 
 	stream.open( ped_file.c_str() );
