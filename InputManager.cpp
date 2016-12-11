@@ -13,15 +13,15 @@ InputManager::InputManager()
 {
 	// get map of genetic distance
 	string choice;
-	choice = "1" ;			// 1-> Indicates PED/PLink Data
-	/*normalPrompt();
+	
+	normalPrompt();
 	cin >> choice;
 	while (!validChoice(choice))
 	{
 		invalidChoiceMessage();
 		normalPrompt();
 		cin >> choice;
-	}*/
+	}
 	setFileFormat(choice);
 	instantiatePie();
 }
@@ -46,9 +46,9 @@ bool InputManager::getPhased()
 }
 
 // getIndividuals(): extracts individuals using pie
-void InputManager::getIndividuals(string map, string ped)
+void InputManager::getIndividuals()
 {
-	pie->getInput(map, ped);
+	pie->getInput();
 }
 
 // normalPrompt():issues prompt asking user which file format
@@ -93,9 +93,9 @@ void InputManager::invalidChoiceMessage()
 void InputManager::setFileFormat(string choice)
 {
 	if (choice[0] == '1')
-		format = PED; 
+		format = PED;
 	else if (choice[0] == '2')
-		format = HM; 
+		format = HM;
 	else
 	{
 		cerr << "WARNING: InputManager::setFileFormat(): invalid file format choice"
