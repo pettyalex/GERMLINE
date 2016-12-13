@@ -37,8 +37,7 @@ void PEDIndividualsExtractor::loadInput()
 
 	int i = 0;
 
-	// It looks like with C++ 11, seekg will read right past the end of the stream and
-	// EOF was never getting set
+	// The stream was getting failbit set and not eof bit
 	while (stream.good())
 	{
 		getIndividuals();
