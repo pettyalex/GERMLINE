@@ -34,7 +34,7 @@ void HMIndividualsExtractor::loadInput()
 	ALL_SNPS.beginChromosome();
 	numberOfMarkers = ALL_SNPS.size();
 
-	while (!stream_sample.eof() && !stream_phased.eof()) getIndividuals();
+	while (!stream_sample && !stream_phased) getIndividuals();
 	
 	stream_sample.close();
 	stream_phased.clear();
@@ -84,7 +84,7 @@ void HMIndividualsExtractor::getIndividuals()
 	streamoff offset = stream_phased.tellg(); if ( offset > 0 ) offset--;
 
 	getline ( stream_phased , discard );
-	if ( stream_phased.eof() ) return;
+	if ( stream_phased ) return;
 	offset_buffer = ( stream_phased.tellg() - offset);
 	getline ( stream_phased , discard );
 	stream_sample >> ID >> discard;

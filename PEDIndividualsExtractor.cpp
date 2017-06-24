@@ -38,7 +38,7 @@ void PEDIndividualsExtractor::loadInput()
 	int i = 0;
 
 	// The stream was getting failbit set and not eof bit
-	while (stream.good())
+	while (stream)
 	{
 		getIndividuals();
 		stream.seekg(numberOfMarkers*4 + 1,ios_base::cur);
