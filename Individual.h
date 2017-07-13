@@ -37,12 +37,9 @@ public:
 	/** Match Tracking **/
 	void reserveMemory();
 
-	void addShare(Share*);
 	void assertShares();
 	void assertHomozygous();
-
-	list<Share*>& getShareList();
-
+	
 	void freeMatches();
 	Match * getMatch( size_t );
 

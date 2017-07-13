@@ -2,7 +2,7 @@
 #include <string.h>
 
 double MIN_MATCH_LEN = 3;
-int MARKER_SET_SIZE = 128;
+unsigned int MARKER_SET_SIZE = 128;
 bool PRINT_MATCH_HAPS = false;
 bool ROI = false;
 bool HAP_EXT = false;
@@ -36,7 +36,7 @@ int main(int argc, char* argv[])
 		else if( strncmp(argv[i], "-silent", strlen("-silent")) == 0 )						SILENT = true;
 		else if( strncmp(argv[i], "-debug", strlen("-debug")) == 0 )						DEBUG = true;
 		else if( strncmp(argv[i], "-map", strlen("-map")) == 0 && i < argc-1)				map = argv[++i];
-		else if( strncmp(argv[i], "-bits", strlen("-bits")) == 0 && i < argc-1)				MARKER_SET_SIZE = atoi(argv[++i]);
+		else if( strncmp(argv[i], "-bits", strlen("-bits")) == 0 && i < argc-1)				MARKER_SET_SIZE = (unsigned int) atoi(argv[++i]);
 		else if( strncmp(argv[i], "-homoz-only", strlen("-homoz-only")) == 0 )				{ ALLOW_HOM = true; HOM_ONLY = true; }
 		else if( strncmp(argv[i], "-homoz", strlen("-homoz")) == 0 )						ALLOW_HOM = true;
 		else if( strncmp(argv[i], "-bin_out", strlen("-bin_out")) == 0 )						BINARY_OUT = true;

@@ -62,7 +62,7 @@ void GERMLINE::mine( string params )
 	if ( ROI )
 	{
 		ALL_SNPS.beginChromosome();
-		num_sets = (long)ceil((double)ALL_SNPS.currentSize()/(double)MARKER_SET_SIZE);
+		num_sets = (unsigned int)ceil((double)ALL_SNPS.currentSize()/(double)MARKER_SET_SIZE);
 		mb.buildMatches();
 		ALL_SAMPLES.freeMatches();
 		ALL_SAMPLES.freeMarkers();
@@ -71,7 +71,7 @@ void GERMLINE::mine( string params )
 	{
 		for ( ALL_SNPS.beginChromosome() ; ALL_SNPS.moreChromosome() ; ALL_SNPS.nextChromosome() )
 		{
-			num_sets = (long)ceil((double)ALL_SNPS.currentSize()/(double)MARKER_SET_SIZE);
+			num_sets = (unsigned int)ceil((double)ALL_SNPS.currentSize()/(double)MARKER_SET_SIZE);
 			mb.buildMatches();
 			if ( !SILENT ) cout << "Matches completed ... freeing memory" << endl;
 			ALL_SAMPLES.freeMatches();

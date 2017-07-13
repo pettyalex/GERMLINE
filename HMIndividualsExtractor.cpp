@@ -16,7 +16,7 @@ void HMIndividualsExtractor::stripWhitespace()
 	if (stream_phased.is_open())
 	{
 		char c;
-		while((c=stream_phased.peek())!=EOF && isspace(c))
+		while((c=(char) stream_phased.peek())!=EOF && isspace(c))
 		stream_phased.get();
 	}
 	else
@@ -142,7 +142,7 @@ void HMIndividualsExtractor::loadMarkerSet( streamoff offset , MarkerSet ** ms )
 			if(position_ms*MARKER_SET_SIZE+position >= maxsize) break;
 			
 			stripWhitespace();
-			char marker = stream_phased.peek();
+			char marker = (char) stream_phased.peek();
 			if ( marker == '1' ) ms[al]->set(position , true );
 
 			stream_phased.get();

@@ -35,7 +35,6 @@ public:
 	Individual * getTarget(Individual * me){ if( node[0] == me ) return node[1]; else return node[0]; }
 	void print( ostream& );
 	bool approxEqual();
-	void erase();
 	void extendBack();
 
 private:

@@ -19,7 +19,7 @@ extern unsigned long num_matches;
 
 // parameters
 extern double MIN_MATCH_LEN;
-extern int MARKER_SET_SIZE;
+extern unsigned int MARKER_SET_SIZE;
 extern int MAX_ERR_HOM;
 extern int MAX_ERR_HET;
 extern bool PRINT_MATCH_HAPS;

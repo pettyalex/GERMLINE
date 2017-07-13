@@ -13,6 +13,8 @@ PolymorphicIndividualsExtractor::PolymorphicIndividualsExtractor()
 : individualsP(NULL), valid_flag(true)
 {}
 
+PolymorphicIndividualsExtractor::~PolymorphicIndividualsExtractor() {}
+
 void PolymorphicIndividualsExtractor::setPhased(bool p)
 {
 	phased = p;

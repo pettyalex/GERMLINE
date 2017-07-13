@@ -57,8 +57,7 @@ float SNPs::getDistance(unsigned int start_marker, unsigned int end_marker)
 float SNPs::getDistance(unsigned int start_marker, unsigned int end_marker , bool& genetic)
 {
 	if ( end_marker >= chromosome->second.size() ) end_marker = (unsigned int) chromosome->second.size() - 1;
-	if ( start_marker < 0 ) start_marker = 0;
-	
+
 	if ( chromosome->second[start_marker].getCentimorgan() == -1 || chromosome->second[end_marker].getCentimorgan() == -1 )
 	{
 		genetic = false;
@@ -133,7 +132,7 @@ void SNPs::loadGeneticDistanceMap(string f)
 // getSNP(): accessor for SNPS.
 SNP SNPs::getSNP(unsigned int markerPosition) const
 {
-	if (!chromosome->second.empty() && markerPosition >= 0 && markerPosition < chromosome->second.size())
+	if (!chromosome->second.empty() && markerPosition < chromosome->second.size())
 		return chromosome->second[markerPosition];
 	else
 	{
@@ -145,7 +144,7 @@ SNP SNPs::getSNP(unsigned int markerPosition) const
 // getVariant(): accessor for variant alleles
 char SNPs::getVariant(unsigned int index, int variant) const
 {
-	if (index >= 0 && index < chromosome->second.size())
+	if (index < chromosome->second.size())
 	{
 		if (variant == 0 || variant == 1)
 			return chromosome->second[index].getVariant(variant);

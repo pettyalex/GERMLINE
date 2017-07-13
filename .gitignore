@@ -2,3 +2,4 @@
 parse_bmatch
 germline
 test/generated*
+.*

@@ -35,7 +35,7 @@ private:
 	NucleotideMap inp;
 	string fileLegend, filePhased, fileSample;
 	ifstream stream_phased , stream_sample;
-	int offset_buffer;
+	streamoff offset_buffer;
 };
 
 #endif

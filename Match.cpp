@@ -197,13 +197,13 @@ void Match::print( ostream& fout )
 	
 	// calculate if homozygous
 	bool hom[2];
-	if ( node[0] == node[1] ) { hom[0] = hom[1] = 1; }
+	if ( node[0] == node[1] ) { hom[0] = hom[1] = true; }
 	else
 	{
 		for ( int n = 0 ; n < 2 ; n++ )
 		{
 			hom[n] = true;
-			for ( unsigned int i = start_ms ; i<= end_ms && hom ; i++ )
+			for ( unsigned int i = start_ms ; i<= end_ms && hom[n]; i++ )
 			{
 				hom[n] = isHom( n , i );
 			}
