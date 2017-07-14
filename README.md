@@ -34,3 +34,13 @@ Upon completion, GERMLINE generates a .match file in the specified location. The
     * Total SNPs in segment
     * Genetic Length of segment(cM)
 
+# This Version
+Quick and dirty fixup to run on modern systems, including the Linux Subsystem 
+for Windows
+
+# Installing
+Run `make` and put the resulting binary wherever you'd like. A very fragile install script that includes some related tools can be run like so:
+
+```
+curl -sL https://raw.githubusercontent.com/pettyalex/GERMLINE/master/setup_script.sh | sudo bash
+```
