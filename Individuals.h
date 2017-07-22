@@ -25,7 +25,6 @@ public:
 	// Precondition: None.
     // Postcondition: ind has been added to individuals
 	void addIndividual( Individual * ind );
-	Individual * getIndividual ( size_t id ) { return pedigree[ id ]; }
 
 	bool more();
 	Individual* next();
@@ -42,8 +41,6 @@ private:
 	// stores the individuals
 	vector< Individual * > pedigree;
 	size_t iter;
-
-	long sets;
 };
 
 #endif
